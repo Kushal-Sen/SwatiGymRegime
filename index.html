@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swati's Strength &amp; Stretch</title>
+<meta name="description" content="A weekly gym plan built around strength, plenty of stretching and a 10-minute cardio finish.">
+<meta name="theme-color" content="#12756a">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Strength & Stretch">
+<style>
+  :root{
+    --bg:#faf6f2; --panel:#ffffff; --panel-2:#f3ece6; --line:#e6dcd3;
+    --ink:#2a2226; --dim:#6b5f63; --accent:#12756a; --accent-ink:#ffffff; --accent-soft:#e1f1ee;
+    --warm:#b83f0a; --stretch:#7a4aa3; --stretch-soft:#efe8f6; --danger:#b3261e;
+    --radius:16px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#15191a; --panel:#1d2224; --panel-2:#272e30; --line:#313a3c;
+      --ink:#f1ece8; --dim:#a9a0a3; --accent:#4fd1c0; --accent-ink:#0c1d1a; --accent-soft:#1b3330;
+      --warm:#ffb26b; --stretch:#c9a4ee; --stretch-soft:#2b2336; --danger:#ff8a80;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;padding-bottom:70px;}
+  button{font:inherit;color:inherit;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+
+  header{padding:24px 18px 8px;max-width:640px;margin:0 auto;}
+  .kicker{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;}
+  h1{margin:4px 0 4px;font-size:28px;line-height:1.15;letter-spacing:-.01em;}
+  .sub{color:var(--dim);font-size:15px;}
+
+  .banner{max-width:640px;margin:12px auto 0;padding:0 16px;}
+  .banner-in{background:var(--accent-soft);border:1px solid var(--accent);border-radius:var(--radius);padding:14px 16px;display:flex;align-items:center;gap:12px;}
+  .banner .txt{flex:1;min-width:0;}
+  .banner .bl{font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+  .banner .bt{font-size:18px;font-weight:800;}
+  .chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:13px;font-weight:700;white-space:nowrap;}
+  .btn{min-height:44px;padding:0 18px;border-radius:12px;border:none;background:var(--accent);color:var(--accent-ink);font-weight:800;cursor:pointer;}
+
+  nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);margin-top:12px;}
+  .tabs{max-width:640px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none;}
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{flex:0 0 auto;min-height:44px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--dim);font-weight:700;cursor:pointer;white-space:nowrap;position:relative;}
+  .tab small{display:block;font-weight:600;font-size:11px;line-height:1.1;margin-top:-2px;}
+  .tab.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);}
+  .tab.rest{font-style:italic;}
+  .tab.done::after{content:"✓";position:absolute;top:-4px;right:-2px;background:var(--warm);color:#fff;width:18px;height:18px;border-radius:50%;font-size:11px;line-height:18px;text-align:center;font-style:normal;}
+  .tab.today{box-shadow:0 0 0 2px var(--accent-soft),0 0 0 3.5px var(--accent);}
+  .tab.sep{margin-left:10px;}
+
+  main{max-width:640px;margin:0 auto;padding:18px 16px 0;}
+  .view{display:none;} .view.active{display:block;}
+
+  .day-head h2{margin:0;font-size:24px;line-height:1.2;}
+  .day-head p{margin:2px 0 0;color:var(--dim);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .pill{font-size:13px;font-weight:700;background:var(--panel-2);border-radius:999px;padding:4px 11px;}
+  .phase{margin-top:12px;background:var(--panel);border:1px dashed var(--accent);border-radius:12px;padding:10px 14px;font-size:14px;}
+  .phase b{color:var(--accent);}
+
+  .block{margin-top:26px;}
+  .block-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:2px solid var(--line);padding-bottom:6px;margin-bottom:10px;}
+  .block-title h3{margin:0;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);}
+  .block-title span{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap;}
+  .block-note{font-size:14px;color:var(--dim);margin:0 0 10px;}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;}
+  .row{width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;background:none;border:none;text-align:left;cursor:pointer;min-height:68px;}
+  .row:active{background:var(--panel-2);}
+  .thumb{width:48px;height:48px;border-radius:12px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .thumb img{width:40px;height:40px;object-fit:contain;}
+  .info{flex:1;min-width:0;}
+  .name{font-weight:700;font-size:16px;}
+  .equip{color:var(--dim);font-size:13px;}
+  .dose{font-weight:800;font-size:15px;color:var(--warm);white-space:nowrap;text-align:right;}
+  .card.stretch .dose{color:var(--stretch);}
+  .chev{color:var(--dim);transition:transform .2s;flex:0 0 auto;}
+  .card.open .chev{transform:rotate(90deg);}
+  .detail{display:none;border-top:1px solid var(--line);padding:12px 14px 16px;}
+  .card.open .detail{display:block;}
+  .lbl{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-top:10px;}
+  .lbl:first-child{margin-top:0;}
+  .cue{color:var(--accent);font-weight:600;}
+  .card.stretch .cue{color:var(--stretch);}
+  .detail input[type=text]{width:100%;min-height:44px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;margin-top:4px;}
+  .vid{display:inline-flex;align-items:center;min-height:40px;margin-top:12px;padding:0 14px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);font-weight:700;font-size:14px;text-decoration:none;}
+
+  .cardio{background:var(--accent-soft);border:1px solid var(--accent);border-radius:var(--radius);padding:14px 16px;}
+  .cardio b{font-size:17px;}
+  .cardio p{margin:4px 0 0;font-size:15px;}
+
+  .done-bar{margin-top:28px;text-align:center;}
+  .done-bar p{color:var(--dim);font-size:14px;margin:0 0 8px;}
+  .done-btn{width:100%;min-height:56px;border-radius:14px;border:none;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:17px;cursor:pointer;}
+  .done-btn.on{background:var(--panel);color:var(--accent);border:2px solid var(--accent);}
+  .done-btn:disabled{opacity:.45;cursor:default;}
+
+  .rest-panel{text-align:center;padding:36px 12px 8px;color:var(--dim);}
+  .rest-panel .big{font-size:48px;line-height:1;margin-bottom:8px;}
+  .rest-panel h2{color:var(--ink);margin:0 0 6px;}
+
+  .prose h2{font-size:22px;margin:0 0 4px;}
+  .prose h3{font-size:17px;margin:24px 0 6px;}
+  .prose p,.prose li{font-size:16px;}
+  .prose ul{padding-left:20px;margin:6px 0;} .prose li{margin:5px 0;}
+  .prose .warn{background:var(--panel);border-left:4px solid var(--danger);padding:10px 14px;border-radius:8px;}
+  table.week{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px;}
+  table.week td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.week td:first-child{font-weight:800;width:52px;}
+  table.week td span{color:var(--dim);display:block;font-size:13px;}
+
+  .form{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;}
+  .form label{font-size:13px;font-weight:700;color:var(--dim);display:block;margin-bottom:2px;}
+  .form input{min-height:44px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:inherit;width:100%;}
+  .form .f{flex:1 1 120px;}
+  .stat-row{display:flex;gap:10px;margin:12px 0;}
+  .stat{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;}
+  .stat b{display:block;font-size:24px;line-height:1.1;} .stat span{font-size:12px;color:var(--dim);font-weight:700;}
+  .bar{height:12px;border-radius:99px;background:var(--panel-2);overflow:hidden;margin:6px 0 2px;}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:99px;}
+  svg.chart{width:100%;height:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;}
+  svg.chart text{fill:var(--dim);font-size:11px;font-family:inherit;}
+  svg.chart .goal{stroke:var(--warm);stroke-dasharray:5 4;stroke-width:1.5;}
+  svg.chart .ln{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round;}
+  svg.chart circle{fill:var(--accent);}
+  ul.log{list-style:none;padding:0;margin:8px 0;}
+  ul.log li{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-bottom:6px;}
+  ul.log button{min-height:36px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:none;color:var(--dim);cursor:pointer;}
+  .link-btn{background:none;border:none;color:var(--dim);text-decoration:underline;cursor:pointer;min-height:44px;font-size:14px;}
+
+  footer{max-width:640px;margin:34px auto 0;padding:16px;color:var(--dim);font-size:13px;border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Weekly gym plan</div>
+  <h1>Swati's Strength &amp; Stretch</h1>
+  <div class="sub">Warm up, lift, stretch, then finish with 10 minutes of cardio. Tap any exercise to see how.</div>
+</header>
+
+<div class="banner" id="banner"></div>
+<nav><div class="tabs" id="tabs" role="tablist"></div></nav>
+<main id="views"></main>
+
+<footer>
+  Progress is saved only in this browser on this device — a different phone or browser starts fresh.
+  This plan is general guidance, not medical advice; check with your doctor before starting, especially with
+  heart, blood-pressure, joint or bone-density concerns. Pictograms are quick references for matching a name to a movement.
+</footer>
+
+<script>
+/* ───────────────────────── Exercise library ───────────────────────── */
+// kind 'lift' → sets×reps + working-weight box; kind 'stretch' → timed/rep dose only.
+const G = 'images/generic.svg';
+const EX = {
+  /* ---- warm-up mobility (dynamic, gentle) ---- */
+  catcow:   {kind:'stretch', name:'Cat–Cow', equip:'Floor, on hands and knees', dose:'8 slow reps', icon:G, cue:'Breathe in as you lift chest and tailbone, breathe out as you round your back. Move slowly, within comfort.'},
+  openbook: {kind:'stretch', name:'Open-Book Rotation', equip:'Lying on your side', dose:'6 / side', icon:G, cue:'Knees stacked and bent. Open the top arm like a book and let your eyes follow your hand.'},
+  armcircle:{kind:'stretch', name:'Shoulder Rolls & Arm Circles', equip:'Standing', dose:'10 each way', icon:G, cue:'Start small and make the circles bigger. Keep your neck long and relaxed.'},
+  legswing: {kind:'stretch', name:'Leg Swings', equip:'Hold a wall or rack', dose:'10 / leg', icon:G, cue:'Swing the leg forward and back like a pendulum. Stay tall and let the range grow on its own.'},
+  hinge:    {kind:'stretch', name:'Hip Hinge Drill', equip:'Bodyweight', dose:'10 reps', icon:'images/deadlift.png', cue:'Hands on hips, push your bottom back, soft knees, flat back. Squeeze glutes to stand. This is the groove for deadlifts.'},
+  sitstand: {kind:'stretch', name:'Sit-to-Stand', equip:'Bench or chair', dose:'8 reps', icon:'images/squat.png', cue:'Stand up without using your hands. Slow lowering. Warms up knees and hips for squats.'},
+
+  /* ---- static stretches (hold, breathe, never bounce) ---- */
+  ham:      {kind:'stretch', name:'Hamstring Stretch', equip:'Lying, towel or strap', dose:'30 s / side', icon:G, cue:'Lie on your back, loop the towel round one foot and raise the leg with a soft knee. Stop where you feel a gentle pull — not pain.'},
+  quad:     {kind:'stretch', name:'Standing Quad Stretch', equip:'Hold a wall', dose:'30 s / side', icon:G, cue:'Heel toward your bottom, knees together, ribs down. Tuck the tailbone slightly instead of arching your back.'},
+  hipflex:  {kind:'stretch', name:'Kneeling Hip-Flexor Stretch', equip:'Mat or pad under the knee', dose:'30 s / side', icon:G, cue:'Back knee down, front foot forward. Squeeze the glute of the back leg and shift forward slightly.'},
+  fig4:     {kind:'stretch', name:'Figure-4 Glute Stretch', equip:'Lying on your back', dose:'30 s / side', icon:G, cue:'Ankle on opposite knee, then pull the thigh toward your chest. Keep your head and shoulders resting down.'},
+  calf:     {kind:'stretch', name:'Wall Calf Stretch', equip:'Wall', dose:'30 s / side', icon:G, cue:'Back heel stays flat, back leg straight, lean toward the wall. Bend the back knee slightly to reach the lower calf.'},
+  chest:    {kind:'stretch', name:'Doorway Chest Stretch', equip:'Door frame or rack', dose:'30 s', icon:G, cue:'Forearm on the frame, elbow just below shoulder height, gently turn your body away. Relax the shoulder down.'},
+  lat:      {kind:'stretch', name:'Side Reach (Lats)', equip:'Standing or seated', dose:'30 s / side', icon:G, cue:'Reach one arm overhead and lean sideways, keeping both hips level. Breathe into the stretched side.'},
+  crossarm: {kind:'stretch', name:'Cross-Body Shoulder Stretch', equip:'Standing', dose:'30 s / side', icon:G, cue:'Bring the arm across your chest, hold above the elbow, keep the shoulder down.'},
+  child:    {kind:'stretch', name:"Child's Pose", equip:'Mat', dose:'45 s', icon:G, cue:'Sit back toward your heels, arms long in front. Rest your forehead on a cushion if needed. Skip if knees object.'},
+  twist:    {kind:'stretch', name:'Supine Spinal Twist', equip:'Mat', dose:'30 s / side', icon:G, cue:'Knees bent and dropped to one side, arms wide, shoulders stay on the floor. Let gravity do the work.'},
+  neck:     {kind:'stretch', name:'Neck Side Stretch', equip:'Seated or standing', dose:'20 s / side', icon:G, cue:'Ear toward shoulder with the opposite hand resting by your side. No pulling.'},
+
+  /* ---- strength: Full Body A (squat + push) ---- */
+  legpress: {kind:'lift', name:'Leg Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/squat.png', load:'Start with a load you could press 3–4 more times than listed. Add one small step once all sets reach 12.', cue:'Feet shoulder-width, knees track over toes, stop just short of locking out. Breathe out as you press.'},
+  chestpress:{kind:'lift', name:'Chest Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/bench_press.png', load:'Start light — last 2 reps should feel hard but clean.', cue:'Shoulder blades back and down, handles at mid-chest height. Press out, then return slowly for 2 counts.'},
+  cablerow: {kind:'lift', name:'Seated Cable Row', equip:'Cable machine', sets:'3', reps:'10–12', icon:'images/seated_row.png', load:'Start light and add weight only when the squeeze stays strong on every rep.', cue:'Sit tall, pull elbows back past your ribs, squeeze shoulder blades, no rocking.'},
+  stepup:   {kind:'lift', name:'Step-Up (low box)', equip:'Bench + optional dumbbells', sets:'3', reps:'8 / leg', icon:'images/step_up.png', load:'Bodyweight first. Then hold 2–4 kg in each hand.', cue:'Whole foot on the box, push through the heel, step down slowly. Stand next to a rail if balance feels off.'},
+  shoulderpress:{kind:'lift', name:'Seated Dumbbell Shoulder Press', equip:'Dumbbells + bench', sets:'2', reps:'10–12', icon:'images/shoulder_press.png', load:'Start with 2–4 kg per hand.', cue:'Back supported, press up and slightly in. Stop before the ribs flare. Exhale on the way up.'},
+
+  /* ---- strength: Full Body B (hinge + pull) ---- */
+  rdl:      {kind:'lift', name:'Dumbbell Romanian Deadlift', equip:'Dumbbells', sets:'3', reps:'10', icon:'images/deadlift.png', load:'Start with 4–6 kg per hand; add as the hinge feels smooth.', cue:'Soft knees, push hips back, dumbbells slide down your thighs, back flat. Stand by squeezing your glutes. Never round your back.'},
+  latpull:  {kind:'lift', name:'Lat Pulldown', equip:'Cable machine', sets:'3', reps:'10–12', icon:'images/lat_pulldown.png', load:'Start light; the bar should come to your upper chest without leaning back.', cue:'Chest up, pull the elbows down toward your ribs, control the bar back up.'},
+  inclinepush:{kind:'lift', name:'Incline Push-Up', equip:'Bench or rack', sets:'3', reps:'8–12', icon:'images/pushup.png', load:'Higher surface = easier. Lower the surface as you get stronger.', cue:'Body in one straight line from head to heels, elbows about 45° from the body. Breathe out as you press.'},
+  legcurl:  {kind:'lift', name:'Leg Curl', equip:'Machine', sets:'3', reps:'12', icon:'images/leg_curl.png', load:'Start light; the weight stack should never slam.', cue:'Hips stay down, curl smoothly, lower for 2–3 counts.'},
+  revfly:   {kind:'lift', name:'Reverse Fly (posture)', equip:'Dumbbells or pec-deck', sets:'2', reps:'12–15', icon:'images/reverse_flyes.png', load:'Very light: 1–3 kg per hand.', cue:'Soft elbows, lead with the elbows, squeeze between the shoulder blades. Keep your neck relaxed.'},
+
+  /* ---- strength: Full Body C (legs + balance) ---- */
+  goblet:   {kind:'lift', name:'Goblet Squat to Bench', equip:'Dumbbell + bench', sets:'3', reps:'10', icon:'images/squat.png', load:'Start with a 4–8 kg dumbbell held at the chest.', cue:'Sit back until you lightly touch the bench, chest tall, stand up by pushing the floor away. Exhale on the way up.'},
+  onerow:   {kind:'lift', name:'One-Arm Dumbbell Row', equip:'Dumbbell + bench', sets:'3', reps:'10 / side', icon:'images/single_arm_row.png', load:'Start with 4–6 kg.', cue:'Hand and knee on the bench, back flat, pull the elbow to your hip, don\'t twist.'},
+  dbpress:  {kind:'lift', name:'Dumbbell Bench Press', equip:'Dumbbells + flat bench', sets:'3', reps:'10', icon:'images/bench_press.png', load:'Start with 3–5 kg per hand.', cue:'Feet planted, shoulder blades tucked, lower to chest level, press up and slightly in.'},
+  revlunge: {kind:'lift', name:'Reverse Lunge (with support)', equip:'Hold a rack or rail', sets:'2', reps:'8 / leg', icon:'images/lunge.png', load:'Bodyweight with a hand on support.', cue:'Step back, lower the back knee toward the floor, front shin stays near vertical, push through the front heel.'},
+  carry:    {kind:'lift', name:"Farmer's Carry", equip:'Dumbbells', sets:'3', reps:'30 m / 30 s', icon:G, load:'Start with 5–8 kg per hand — heavy enough that your grip works.', cue:'Walk tall, shoulders back, ribs down. Great for bones, grip and balance.'},
+  calfraise:{kind:'lift', name:'Standing Calf Raise', equip:'Bodyweight, hold a rail', sets:'3', reps:'15', icon:'images/calf_raise.png', load:'Bodyweight; add light dumbbells later.', cue:'Rise up high, pause 1 second, lower slowly.'},
+
+  /* ---- core & balance ---- */
+  plank:    {kind:'lift', name:'Plank (knees or incline)', equip:'Mat or bench', sets:'3', reps:'20–30 s', icon:'images/plank.png', load:'Bodyweight. Progress by lengthening the hold.', cue:'Straight line from shoulders to knees/heels, ribs down, breathe normally.'},
+  deadbug:  {kind:'lift', name:'Dead Bug', equip:'Mat', sets:'2', reps:'8 / side', icon:G, load:'Bodyweight.', cue:'Lower back stays gently pressed to the floor as the opposite arm and leg lower. Slow and controlled.'},
+  birddog:  {kind:'lift', name:'Bird Dog', equip:'Mat', sets:'2', reps:'8 / side', icon:G, load:'Bodyweight.', cue:'Reach long rather than high. Hips stay square — imagine a glass of water on your back.'},
+  bicycle:  {kind:'lift', name:'Slow Bicycle Crunch', equip:'Mat', sets:'2', reps:'12 / side', icon:'images/bicycle_crunch.png', load:'Bodyweight.', cue:'Slow rotation from the ribs, not the neck. Keep your lower back down.'},
+  sideplank:{kind:'lift', name:'Side Plank (knees)', equip:'Mat', sets:'2', reps:'20 s / side', icon:G, load:'Bodyweight.', cue:'Elbow under shoulder, lift the hips so you form a line from knees to head.'},
+  onelegstand:{kind:'stretch', name:'Single-Leg Stand', equip:'Near a wall or rail', dose:'30 s / leg', icon:G, cue:'Fingertips on support only if needed. Eyes on a fixed point. Balance training protects against falls.'}
+};
+
+/* ───────────────────────── Day templates ───────────────────────── */
+const WARM = ['catcow','openbook','armcircle','legswing'];
+const DAYS = {
+  A:{label:'Full Body A', tag:'Squat + Push', dur:'≈ 65 min', blocks:[
+    {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. This is the “good stretching” that gets your joints ready.', items:[...WARM,'sitstand']},
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['legpress','chestpress','cablerow','stepup','shoulderpress']},
+    {t:'Core', time:'5 min', items:['plank','deadbug']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['quad','hipflex','fig4','calf','chest','neck']},
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Stationary bike', desc:'Easy start for 2 minutes, then a steady pace at 5–6 out of 10 effort: breathing faster, but you can still speak in sentences.'}
+  ]},
+  B:{label:'Full Body B', tag:'Hinge + Pull', dur:'≈ 65 min', blocks:[
+    {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. Move into the stretch only as far as is comfortable.', items:[...WARM,'hinge']},
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['rdl','latpull','inclinepush','legcurl','revfly']},
+    {t:'Core', time:'5 min', items:['birddog','bicycle']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['ham','fig4','lat','twist','chest','child']},
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Cross-trainer (elliptical)', desc:'Easy start for 2 minutes, then steady at 5–6 out of 10 effort. Hold the handles lightly and stand tall.'}
+  ]},
+  C:{label:'Full Body C', tag:'Legs + Balance', dur:'≈ 65 min', blocks:[
+    {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. Move into the stretch only as far as is comfortable.', items:[...WARM,'sitstand']},
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['goblet','onerow','dbpress','revlunge','carry','calfraise']},
+    {t:'Core', time:'5 min', items:['plank','sideplank']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['quad','ham','hipflex','calf','crossarm','neck']},
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Treadmill incline walk', desc:'Walk at a brisk pace on a small incline (2–4%). Steady effort at 5–6 out of 10; no holding the rails if you can manage it.'}
+  ]},
+  S:{label:'Stretch & Flow', tag:'Mobility · Balance · Cardio', dur:'≈ 45 min', blocks:[
+    {t:'Warm-up mobility', time:'8 min', note:'A lighter day. The aim is to feel looser, not tired.', items:[...WARM,'hinge']},
+    {t:'Long stretch session', time:'≈ 18 min', note:'Hold each stretch for the full time. A second round of your tightest areas is a good use of spare minutes.', items:['ham','quad','hipflex','fig4','calf','chest','lat','crossarm','child','twist','neck']},
+    {t:'Balance & core', time:'5 min', items:['onelegstand','birddog','deadbug']},
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Your choice: bike, cross-trainer or brisk walk', desc:'Steady 5–6 out of 10 effort. From week 5 you can try 1 minute brisk, 2 minutes easy, repeated three times, plus a 1-minute easy finish.'}
+  ]}
+};
+// Monday → Sunday. R = rest.
+const SCHEDULE = ['A','S','B','R','C','S','R'];
+const DAY_NAMES = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+/* ───────────────────────── State ───────────────────────── */
+const KEY = 'swatiGymState_v1';
+function pad(n){ return String(n).padStart(2,'0'); }
+function fmt(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function parse(s){ const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d); }
+function dowMon(d){ return (d.getDay()+6)%7; }
+function monday(d){ const m=new Date(d.getFullYear(),d.getMonth(),d.getDate()); m.setDate(m.getDate()-dowMon(m)); return m; }
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function loadState(){
+  try{
+    const s = JSON.parse(localStorage.getItem(KEY)||'null');
+    if(s) return Object.assign({history:{}, weights:[], goal:'', loads:{}, startDate:fmt(new Date())}, s);
+  }catch(e){}
+  return {history:{}, weights:[], goal:'', loads:{}, startDate:fmt(new Date())};
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+let S = loadState();
+
+function weekNumber(){ return Math.floor((monday(new Date()) - monday(parse(S.startDate))) / (7*864e5)) + 1; }
+function sessionsThisWeek(){
+  const m = monday(new Date()); let done=0, total=0;
+  SCHEDULE.forEach((k,i)=>{ if(k==='R') return; total++; const d=new Date(m); d.setDate(d.getDate()+i); if(S.history[fmt(d)]) done++; });
+  return {done,total};
+}
+function phaseNote(w){
+  if(w<=2) return ['Weeks 1–2 · Learn the moves','Do just 2 sets of each lift and keep it light. Technique matters more than weight right now.'];
+  if(w<=12) return ['Weeks 3–12 · Build','Do all the listed sets. When every set hits the top of the rep range with 2 reps still in the tank, add the smallest weight step.'];
+  if(w%6===0) return ['Easier week','Every sixth week, do one set fewer on each lift. Recovery is when the strength is built.'];
+  return ['Week '+w+' · Keep building','Keep adding small amounts of weight when every set feels solid. Fat loss comes mostly from food; the lifting keeps your muscle and bones.'];
+}
+
+/* ───────────────────────── Rendering ───────────────────────── */
+const tabsEl = document.getElementById('tabs');
+const viewsEl = document.getElementById('views');
+const bannerEl = document.getElementById('banner');
+let current = 'd'+dowMon(new Date());
+
+function dateForIdx(i){ const d=monday(new Date()); d.setDate(d.getDate()+i); return d; }
+function videoUrl(ex){ return 'https://www.youtube.com/results?search_query='+encodeURIComponent(ex.name+(ex.kind==='lift'?' exercise proper form':' stretch how to')); }
+
+function card(id){
+  const ex = EX[id];
+  const isLift = ex.kind==='lift';
+  const dose = isLift ? `${ex.sets}×${ex.reps}` : ex.dose;
+  const saved = isLift ? (S.loads[id]||'') : '';
+  return `
+  <div class="card ${isLift?'':'stretch'}">
+    <button class="row" aria-expanded="false" onclick="toggleCard(this)">
+      <span class="thumb"><img src="${ex.icon}" alt="" loading="lazy"></span>
+      <span class="info"><span class="name">${ex.name}</span><br><span class="equip">${ex.equip}</span></span>
+      <span class="dose">${dose}</span>
+      <span class="chev" aria-hidden="true">&#9656;</span>
+    </button>
+    <div class="detail">
+      <div class="lbl">How to</div><div class="cue">${ex.cue}</div>
+      ${isLift?`<div class="lbl">Starting weight</div><div>${ex.load}</div>
+      <div class="lbl">Your working weight</div>
+      <input type="text" inputmode="text" placeholder="e.g. 6 kg each hand" value="${esc(saved)}" aria-label="Your working weight for ${ex.name}" onchange="saveLoad('${id}',this.value)">`:''}
+      <a class="vid" href="${videoUrl(ex)}" target="_blank" rel="noopener noreferrer">&#9654; Watch a video</a>
+    </div>
+  </div>`;
+}
+function toggleCard(btn){
+  const c = btn.parentElement; const open = c.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open);
+}
+function saveLoad(id,v){ S.loads[id]=v.trim(); save(); }
+
+function dayView(key, date){
+  const D = DAYS[key];
+  const ds = fmt(date);
+  const isFuture = date > new Date();
+  const done = !!S.history[ds];
+  const isStrength = D.blocks.some(b=>b.t==='Strength');
+  let h = `<div class="day-head"><h2>${D.label}</h2><p>${D.tag}</p></div>
+  <div class="meta-row"><span class="pill">${D.dur}</span><span class="pill">${DAY_NAMES[dowMon(date)]} ${date.getDate()}/${date.getMonth()+1}</span></div>`;
+  if(isStrength){ const [a,b]=phaseNote(weekNumber()); h+=`<div class="phase"><b>${a}.</b> ${b}</div>`; }
+  D.blocks.forEach(b=>{
+    h += `<section class="block"><div class="block-title"><h3>${b.t}</h3><span>${b.time}</span></div>`;
+    if(b.note) h += `<p class="block-note">${b.note}</p>`;
+    if(b.cardio) h += `<div class="cardio"><b>${b.title}</b><p>${b.desc}</p></div>`;
+    else b.items.forEach(id=> h += card(id));
+    h += `</section>`;
+  });
+  h += `<div class="done-bar"><p>${done?'Logged — tap to undo.':(isFuture?'You can log this once the day arrives.':'All finished?')}</p>
+    <button class="done-btn ${done?'on':''}" ${isFuture?'disabled':''} onclick="toggleDone('${ds}','${key}')">${done?'✓ Done':'Mark day done'}</button></div>`;
+  return h;
+}
+function restView(date){
+  const ds = fmt(date);
+  return `<div class="rest-panel"><div class="big">&#9829;</div><h2>Rest day</h2>
+    <p>Recovery is where the strength is built. A gentle walk, your usual steps and plenty of water are all you need today.</p></div>`;
+}
+
+function progressView(){
+  const w = S.weights.slice().sort((a,b)=>a.d.localeCompare(b.d));
+  const goal = parseFloat(S.goal);
+  let top = '';
+  if(w.length){
+    const start = w[0].kg, now = w[w.length-1].kg;
+    const lost = start-now;
+    const hasGoal = !isNaN(goal) && start>goal;
+    const pct = hasGoal ? Math.max(0,Math.min(100, lost/(start-goal)*100)) : 0;
+    top = `<div class="stat-row">
+      <div class="stat"><b>${start.toFixed(1)}</b><span>START kg</span></div>
+      <div class="stat"><b>${now.toFixed(1)}</b><span>NOW kg</span></div>
+      <div class="stat"><b>${lost>=0?lost.toFixed(1):'+'+Math.abs(lost).toFixed(1)}</b><span>${lost>=0?'LOST kg':'CHANGE kg'}</span></div></div>`;
+    if(hasGoal) top += `<div class="bar"><i style="width:${pct}%"></i></div><p class="block-note">${pct.toFixed(0)}% of the way to ${goal} kg${now>goal?` · ${(now-goal).toFixed(1)} kg to go`:' · goal reached 🎉'}</p>`;
+    top += chart(w, goal);
+  } else {
+    top = `<p class="block-note">Add your first weigh-in below to start the chart. Weigh once a week, same morning, same conditions — one reading a week is far more useful than daily ups and downs.</p>`;
+  }
+  const list = w.slice().reverse().map(e=>`<li><span><b>${e.kg.toFixed(1)} kg</b> · ${fmtLong(e.d)}</span><button aria-label="Delete weigh-in" onclick="delWeight('${e.d}')">Delete</button></li>`).join('');
+  return `<div class="prose"><h2>Progress</h2><p>Fat loss is slow and steady. Aim for about 0.3–0.5 kg a week; the scale will wobble from day to day.</p></div>
+  ${top}
+  <div class="form">
+    <div class="f"><label for="wd">Date</label><input id="wd" type="date" value="${fmt(new Date())}"></div>
+    <div class="f"><label for="wk">Weight (kg)</label><input id="wk" type="number" step="0.1" min="30" max="250" inputmode="decimal"></div>
+    <div class="f" style="align-self:flex-end;flex:0 0 auto"><button class="btn" onclick="addWeight()">Add</button></div>
+  </div>
+  <div class="form"><div class="f"><label for="goal">Goal weight (kg)</label><input id="goal" type="number" step="0.1" min="30" max="250" inputmode="decimal" value="${esc(S.goal)}" onchange="setGoal(this.value)"></div></div>
+  <ul class="log">${list}</ul>
+  <div style="text-align:center"><button class="link-btn" onclick="resetAll()">Clear all saved progress</button></div>`;
+}
+function fmtLong(ds){ const d=parse(ds); return d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]+' '+d.getFullYear(); }
+function chart(w, goal){
+  const W=600,H=220,L=40,R=16,T=14,B=26;
+  const ys = w.map(e=>e.kg).concat(isNaN(goal)?[]:[goal]);
+  let lo=Math.floor(Math.min(...ys)-1), hi=Math.ceil(Math.max(...ys)+1);
+  if(hi-lo<3){ hi+=1; lo-=1; }
+  const t0=parse(w[0].d).getTime(), t1=parse(w[w.length-1].d).getTime();
+  const X = d => w.length<2||t1===t0 ? (L+W-R)/2 : L+(parse(d).getTime()-t0)/(t1-t0)*(W-L-R);
+  const Y = v => T+(hi-v)/(hi-lo)*(H-T-B);
+  let s = `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Weight over time">`;
+  for(let v=lo; v<=hi; v+=Math.max(1,Math.round((hi-lo)/4))) s+=`<text x="4" y="${Y(v)+4}">${v}</text><line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/>`;
+  if(!isNaN(goal) && goal>=lo && goal<=hi) s+=`<line class="goal" x1="${L}" x2="${W-R}" y1="${Y(goal)}" y2="${Y(goal)}"/><text x="${W-R-4}" y="${Y(goal)-5}" text-anchor="end">goal ${goal}</text>`;
+  s+=`<polyline class="ln" points="${w.map(e=>X(e.d)+','+Y(e.kg)).join(' ')}"/>`;
+  w.forEach(e=>{ s+=`<circle cx="${X(e.d)}" cy="${Y(e.kg)}" r="4"/>`; });
+  return s+`</svg>`;
+}
+
+function planView(){
+  return `<div class="prose">
+  <h2>How this plan works</h2>
+  <p>The goal is to lose body fat while <b>keeping your muscle and bone strength</b> — which is why lifting comes first and cardio is a short finisher. Steps are tracked separately, on top of this.</p>
+  <table class="week">
+    ${SCHEDULE.map((k,i)=>`<tr><td>${DAY_NAMES[i]}</td><td>${k==='R'?'Rest':DAYS[k].label}<span>${k==='R'?'Easy walk, steps, water':DAYS[k].tag+' · '+DAYS[k].dur}</span></td></tr>`).join('')}
+  </table>
+  <h3>Every session has the same shape</h3>
+  <ul><li><b>Warm-up mobility</b> to loosen joints</li><li><b>Strength</b> (about 30 minutes) — whole body, 5–6 lifts</li><li><b>Core</b> for a strong middle</li><li><b>Cool-down stretching</b> of what you just trained</li><li><b>10 minutes of cardio</b> to finish</li></ul>
+  <h3>Getting stronger safely</h3>
+  <ul>
+    <li>Choose a weight you could lift about 3 more times than the reps listed. The last 2 reps of each set should feel hard but clean.</li>
+    <li>Lower the weight slowly (about 2 counts). Breathe out as you push or pull — never hold your breath.</li>
+    <li>When every set reaches the top of the range, add the smallest weight step next time. Write your weights in each exercise's box.</li>
+    <li>If you're experienced, start heavier within the same rep ranges. These are written for someone new or returning to lifting.</li>
+  </ul>
+  <h3>Fat loss: what matters outside the gym</h3>
+  <ul>
+    <li><b>Food does most of the work.</b> A modest daily deficit of roughly 400–500 kcal is steady without costing muscle.</li>
+    <li><b>Protein at every meal</b> — about 90–110 g a day in total (dal, eggs, paneer, curd, fish, chicken, tofu). Protein protects muscle while you lose fat.</li>
+    <li>Water through the day, and seven or more hours of sleep. Both make cravings easier.</li>
+    <li>Strength training, stretching and short walks all add up. Do not try to “make up” a missed day by doing double.</li>
+  </ul>
+  <h3>Stretching rules</h3>
+  <ul><li>Stretch until you feel a mild pull, never pain.</li><li>Breathe slowly and don't bounce.</li><li>If you have been told you have low bone density, skip deep rounded-forward stretches and ask your doctor or a physio.</li></ul>
+  <p class="warn"><b>Stop and get checked</b> if you feel chest pain, dizziness, unusual breathlessness or sharp joint pain. Mild muscle soreness for a day or two is normal.</p>
+  </div>`;
+}
+
+function renderBanner(){
+  const today = new Date(), i = dowMon(today), k = SCHEDULE[i];
+  const label = k==='R' ? 'Rest day' : DAYS[k].label;
+  const done = !!S.history[fmt(today)];
+  const {done:d,total:t} = sessionsThisWeek();
+  bannerEl.innerHTML = `<div class="banner-in"><div class="txt"><div class="bl">${done?'Today · logged':(k==='R'?'Today':'Up next')} · Week ${weekNumber()}</div><div class="bt">${DAY_NAMES[i]} — ${label}</div></div>
+    <span class="chip" title="Sessions finished this week">${d}/${t} this week</span>
+    <button class="btn" onclick="selectTab('d${i}')">${done?'View':'Go'}</button></div>`;
+}
+function renderTabs(){
+  tabsEl.innerHTML = '';
+  const tIdx = dowMon(new Date());
+  SCHEDULE.forEach((k,i)=>{
+    const date = dateForIdx(i);
+    const b = document.createElement('button');
+    b.className = 'tab'+(current==='d'+i?' active':'')+(k==='R'?' rest':'')+(i===tIdx?' today':'')+(S.history[fmt(date)]&&k!=='R'?' done':'');
+    b.setAttribute('role','tab'); b.setAttribute('aria-selected', current==='d'+i);
+    b.dataset.target='d'+i;
+    b.innerHTML = `${DAY_NAMES[i]}<small>${k==='R'?'Rest':DAYS[k].label.replace('Full Body ','Body ')}</small>`;
+    b.onclick = ()=>selectTab('d'+i);
+    tabsEl.appendChild(b);
+  });
+  [['plan','Plan'],['progress','Progress']].forEach(([id,label],n)=>{
+    const b = document.createElement('button');
+    b.className='tab'+(n===0?' sep':'')+(current===id?' active':'');
+    b.setAttribute('role','tab'); b.setAttribute('aria-selected', current===id);
+    b.dataset.target=id; b.innerHTML=`${label}<small>&nbsp;</small>`;
+    b.onclick=()=>selectTab(id);
+    tabsEl.appendChild(b);
+  });
+}
+function renderAll(){
+  // keep any open cards open across re-renders
+  const open = new Set([...document.querySelectorAll('.card.open .name')].map(n=>n.closest('.view').id+'|'+n.textContent));
+  renderBanner(); renderTabs();
+  viewsEl.innerHTML = '';
+  SCHEDULE.forEach((k,i)=>{
+    const v = document.createElement('div');
+    v.className='view'+(current==='d'+i?' active':''); v.id='d'+i;
+    v.innerHTML = k==='R' ? restView(dateForIdx(i)) : dayView(k, dateForIdx(i));
+    viewsEl.appendChild(v);
+  });
+  [['plan',planView],['progress',progressView]].forEach(([id,fn])=>{
+    const v = document.createElement('div');
+    v.className='view'+(current===id?' active':''); v.id=id; v.innerHTML=fn();
+    viewsEl.appendChild(v);
+  });
+  document.querySelectorAll('.card .name').forEach(n=>{
+    if(open.has(n.closest('.view').id+'|'+n.textContent)){ const c=n.closest('.card'); c.classList.add('open'); c.querySelector('.row').setAttribute('aria-expanded','true'); }
+  });
+}
+function selectTab(id){
+  current=id;
+  document.querySelectorAll('.tab').forEach(t=>{ const a=t.dataset.target===id; t.classList.toggle('active',a); t.setAttribute('aria-selected',a); });
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  const at = tabsEl.querySelector('.tab.active'); if(at) at.scrollIntoView({inline:'center',block:'nearest'});
+}
+
+/* ───────────────────────── Actions ───────────────────────── */
+function toggleDone(ds,key){
+  if(S.history[ds]) delete S.history[ds]; else S.history[ds]={day:key};
+  save(); renderAll();
+}
+function addWeight(){
+  const d=document.getElementById('wd').value, kg=parseFloat(document.getElementById('wk').value);
+  if(!d || isNaN(kg) || kg<30 || kg>250) return;
+  S.weights = S.weights.filter(e=>e.d!==d); S.weights.push({d,kg});
+  save(); renderAll();
+}
+function delWeight(d){ S.weights=S.weights.filter(e=>e.d!==d); save(); renderAll(); }
+function setGoal(v){ S.goal=v; save(); renderAll(); }
+function resetAll(){
+  if(!confirm('Clear all saved sessions, weigh-ins and working weights on this device? This cannot be undone.')) return;
+  S={history:{}, weights:[], goal:'', loads:{}, startDate:fmt(new Date())}; save(); renderAll();
+}
+
+renderAll();
+selectTab(current);
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
+}
+</script>
+</body>
+</html>
