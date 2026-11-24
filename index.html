@@ -168,81 +168,83 @@ const EX = {
   armcircle:{kind:'stretch', name:'Shoulder Rolls & Arm Circles', equip:'Standing', dose:'10 each way', icon:G, cue:'Start small and make the circles bigger. Keep your neck long and relaxed.'},
   legswing: {kind:'stretch', name:'Leg Swings', equip:'Hold a wall or rack', dose:'10 / leg', icon:G, cue:'Swing the leg forward and back like a pendulum. Stay tall and let the range grow on its own.'},
   hinge:    {kind:'stretch', name:'Hip Hinge Drill', equip:'Bodyweight', dose:'10 reps', icon:'images/deadlift.png', cue:'Hands on hips, push your bottom back, soft knees, flat back. Squeeze glutes to stand. This is the groove for deadlifts.'},
-  sitstand: {kind:'stretch', name:'Sit-to-Stand', equip:'Bench or chair', dose:'8 reps', icon:'images/squat.png', cue:'Stand up without using your hands. Slow lowering. Warms up knees and hips for squats.'},
+  sitstand: {kind:'stretch', name:'Sit-to-Stand', equip:'Bench or chair', dose:'8 reps', icon:'images/squat.png', cue:'Stand up without your hands if you can (use them if you need to). Lower slowly. Warms up knees and hips for squats.'},
 
   /* ---- static stretches (hold, breathe, never bounce) ---- */
   ham:      {kind:'stretch', name:'Hamstring Stretch', equip:'Lying, towel or strap', dose:'30 s / side', icon:G, cue:'Lie on your back, loop the towel round one foot and raise the leg with a soft knee. Stop where you feel a gentle pull — not pain.'},
-  quad:     {kind:'stretch', name:'Standing Quad Stretch', equip:'Hold a wall', dose:'30 s / side', icon:G, cue:'Heel toward your bottom, knees together, ribs down. Tuck the tailbone slightly instead of arching your back.'},
+  quad:     {kind:'stretch', name:'Standing Quad Stretch', equip:'Hold a wall', dose:'30 s / side', icon:G, cue:'Heel toward your bottom, knees together, ribs down. Tuck the tailbone slightly instead of arching your back. Unsteady on one leg? Do it lying on your side instead.'},
   hipflex:  {kind:'stretch', name:'Kneeling Hip-Flexor Stretch', equip:'Mat or pad under the knee', dose:'30 s / side', icon:G, cue:'Back knee down, front foot forward. Squeeze the glute of the back leg and shift forward slightly.'},
   fig4:     {kind:'stretch', name:'Figure-4 Glute Stretch', equip:'Lying on your back', dose:'30 s / side', icon:G, cue:'Ankle on opposite knee, then pull the thigh toward your chest. Keep your head and shoulders resting down.'},
   calf:     {kind:'stretch', name:'Wall Calf Stretch', equip:'Wall', dose:'30 s / side', icon:G, cue:'Back heel stays flat, back leg straight, lean toward the wall. Bend the back knee slightly to reach the lower calf.'},
   chest:    {kind:'stretch', name:'Doorway Chest Stretch', equip:'Door frame or rack', dose:'30 s', icon:G, cue:'Forearm on the frame, elbow just below shoulder height, gently turn your body away. Relax the shoulder down.'},
   lat:      {kind:'stretch', name:'Side Reach (Lats)', equip:'Standing or seated', dose:'30 s / side', icon:G, cue:'Reach one arm overhead and lean sideways, keeping both hips level. Breathe into the stretched side.'},
   crossarm: {kind:'stretch', name:'Cross-Body Shoulder Stretch', equip:'Standing', dose:'30 s / side', icon:G, cue:'Bring the arm across your chest, hold above the elbow, keep the shoulder down.'},
-  child:    {kind:'stretch', name:"Child's Pose", equip:'Mat', dose:'45 s', icon:G, cue:'Sit back toward your heels, arms long in front. Rest your forehead on a cushion if needed. Skip if knees object.'},
-  twist:    {kind:'stretch', name:'Supine Spinal Twist', equip:'Mat', dose:'30 s / side', icon:G, cue:'Knees bent and dropped to one side, arms wide, shoulders stay on the floor. Let gravity do the work.'},
+  child:    {kind:'stretch', name:"Child's Pose", equip:'Mat', dose:'45 s', icon:G, cue:'Sit back toward your heels, arms long in front. Rest your forehead on a cushion if needed. Skip if your knees object or you have low bone density.'},
+  twist:    {kind:'stretch', name:'Supine Spinal Twist', equip:'Mat', dose:'30 s / side', icon:G, cue:'Knees bent and dropped to one side, arms wide, shoulders stay on the floor. Let gravity do the work. Gentle range only; skip if you have low bone density.'},
   neck:     {kind:'stretch', name:'Neck Side Stretch', equip:'Seated or standing', dose:'20 s / side', icon:G, cue:'Ear toward shoulder with the opposite hand resting by your side. No pulling.'},
 
   /* ---- strength: Full Body A (squat + push) ---- */
-  legpress: {kind:'lift', name:'Leg Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/squat.png', load:'Start with a load you could press 3–4 more times than listed. Add one small step once all sets reach 12.', cue:'Feet shoulder-width, knees track over toes, stop just short of locking out. Breathe out as you press.'},
-  chestpress:{kind:'lift', name:'Chest Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/bench_press.png', load:'Start light — last 2 reps should feel hard but clean.', cue:'Shoulder blades back and down, handles at mid-chest height. Press out, then return slowly for 2 counts.'},
+  legpress: {kind:'lift', name:'Leg Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/squat.png', load:'Pick a load where you could do 2–3 more reps. Add the smallest step once all sets reach 12.', cue:'Feet shoulder-width, knees track over toes, stop just short of locking out. Only lower as far as your lower back and hips stay flat on the pad; don\'t let your bottom curl up. Breathe out as you press.'},
+  chestpress:{kind:'lift', name:'Chest Press', equip:'Machine', sets:'3', reps:'10–12', icon:'images/bench_press.png', load:'Start light — you should finish each set with 2–3 good reps left.', cue:'Shoulder blades back and down, handles at mid-chest height. Press out, then return slowly for 2 counts.'},
   cablerow: {kind:'lift', name:'Seated Cable Row', equip:'Cable machine', sets:'3', reps:'10–12', icon:'images/seated_row.png', load:'Start light and add weight only when the squeeze stays strong on every rep.', cue:'Sit tall, pull elbows back past your ribs, squeeze shoulder blades, no rocking.'},
-  stepup:   {kind:'lift', name:'Step-Up (low box)', equip:'Bench + optional dumbbells', sets:'3', reps:'8 / leg', icon:'images/step_up.png', load:'Bodyweight first. Then hold 2–4 kg in each hand.', cue:'Whole foot on the box, push through the heel, step down slowly. Stand next to a rail if balance feels off.'},
+  stepup:   {kind:'lift', name:'Step-Up (low box)', equip:'Low box (15–20 cm) + optional dumbbells', sets:'3', reps:'8 / leg', icon:'images/step_up.png', load:'Bodyweight first. Then hold 2–4 kg in each hand.', cue:'Whole foot on the box, push through the whole foot, step down slowly. Stand next to a rail if balance feels off.'},
   shoulderpress:{kind:'lift', name:'Seated Dumbbell Shoulder Press', equip:'Dumbbells + bench', sets:'2', reps:'10–12', icon:'images/shoulder_press.png', load:'Start with 2–4 kg per hand.', cue:'Back supported, press up and slightly in. Stop before the ribs flare. Exhale on the way up.'},
 
   /* ---- strength: Full Body B (hinge + pull) ---- */
   rdl:      {kind:'lift', name:'Dumbbell Romanian Deadlift', equip:'Dumbbells', sets:'3', reps:'10', icon:'images/deadlift.png', load:'Start with 4–6 kg per hand; add as the hinge feels smooth.', cue:'Soft knees, push hips back, dumbbells slide down your thighs, back flat. Stand by squeezing your glutes. Never round your back.'},
-  latpull:  {kind:'lift', name:'Lat Pulldown', equip:'Cable machine', sets:'3', reps:'10–12', icon:'images/lat_pulldown.png', load:'Start light; the bar should come to your upper chest without leaning back.', cue:'Chest up, pull the elbows down toward your ribs, control the bar back up.'},
+  latpull:  {kind:'lift', name:'Lat Pulldown', equip:'Cable machine', sets:'3', reps:'10–12', icon:'images/lat_pulldown.png', load:'Start light; the bar should come to your upper chest without leaning back.', cue:'Chest up, pull the elbows down toward your ribs, control the bar back up. Pull to the front only, never behind your neck; a slight lean back is fine.'},
   inclinepush:{kind:'lift', name:'Incline Push-Up', equip:'Bench or rack', sets:'3', reps:'8–12', icon:'images/pushup.png', load:'Higher surface = easier. Lower the surface as you get stronger.', cue:'Body in one straight line from head to heels, elbows about 45° from the body. Breathe out as you press.'},
   legcurl:  {kind:'lift', name:'Leg Curl', equip:'Machine', sets:'3', reps:'12', icon:'images/leg_curl.png', load:'Start light; the weight stack should never slam.', cue:'Hips stay down, curl smoothly, lower for 2–3 counts.'},
-  revfly:   {kind:'lift', name:'Reverse Fly (posture)', equip:'Dumbbells or pec-deck', sets:'2', reps:'12–15', icon:'images/reverse_flyes.png', load:'Very light: 1–3 kg per hand.', cue:'Soft elbows, lead with the elbows, squeeze between the shoulder blades. Keep your neck relaxed.'},
+  revfly:   {kind:'lift', name:'Reverse Fly (posture)', equip:'Reverse pec-deck, or chest-supported on an incline bench', sets:'2', reps:'12–15', icon:'images/reverse_flyes.png', load:'Very light: 1–3 kg per hand.', cue:'Soft elbows, lead with the elbows, squeeze between the shoulder blades. Keep your neck relaxed. Avoid doing it bent over unsupported.'},
 
   /* ---- strength: Full Body C (legs + balance) ---- */
   goblet:   {kind:'lift', name:'Goblet Squat to Bench', equip:'Dumbbell + bench', sets:'3', reps:'10', icon:'images/squat.png', load:'Start with a 4–8 kg dumbbell held at the chest.', cue:'Sit back until you lightly touch the bench, chest tall, stand up by pushing the floor away. Exhale on the way up.'},
   onerow:   {kind:'lift', name:'One-Arm Dumbbell Row', equip:'Dumbbell + bench', sets:'3', reps:'10 / side', icon:'images/single_arm_row.png', load:'Start with 4–6 kg.', cue:'Hand and knee on the bench, back flat, pull the elbow to your hip, don\'t twist.'},
   dbpress:  {kind:'lift', name:'Dumbbell Bench Press', equip:'Dumbbells + flat bench', sets:'3', reps:'10', icon:'images/bench_press.png', load:'Start with 3–5 kg per hand.', cue:'Feet planted, shoulder blades tucked, lower to chest level, press up and slightly in.'},
   revlunge: {kind:'lift', name:'Reverse Lunge (with support)', equip:'Hold a rack or rail', sets:'2', reps:'8 / leg', icon:'images/lunge.png', load:'Bodyweight with a hand on support.', cue:'Step back, lower the back knee toward the floor, front shin stays near vertical, push through the front heel.'},
-  carry:    {kind:'lift', name:"Farmer's Carry", equip:'Dumbbells', sets:'3', reps:'30 m / 30 s', icon:G, load:'Start with 5–8 kg per hand — heavy enough that your grip works.', cue:'Walk tall, shoulders back, ribs down. Great for bones, grip and balance.'},
+  carry:    {kind:'lift', name:"Farmer's Carry", equip:'Dumbbells', sets:'3', reps:'30 m / 30 s', icon:'images/carry.svg', load:'Start with 5–8 kg per hand — heavy enough that your grip works.', cue:'Walk tall, shoulders back, ribs down. Great for bones, grip and balance.'},
   calfraise:{kind:'lift', name:'Standing Calf Raise', equip:'Bodyweight, hold a rail', sets:'3', reps:'15', icon:'images/calf_raise.png', load:'Bodyweight; add light dumbbells later.', cue:'Rise up high, pause 1 second, lower slowly.'},
+
+  bridge:   {kind:'lift', name:'Glute Bridge', equip:'Mat', sets:'3', reps:'12', icon:G, load:'Bodyweight first. Later rest a 4–8 kg dumbbell on your hips.', cue:'Feet flat, knees bent. Press through your heels, squeeze glutes at the top so hips and ribs stay in line. Don\'t arch your lower back.'},
 
   /* ---- core & balance ---- */
   plank:    {kind:'lift', name:'Plank (knees or incline)', equip:'Mat or bench', sets:'3', reps:'20–30 s', icon:'images/plank.png', load:'Bodyweight. Progress by lengthening the hold.', cue:'Straight line from shoulders to knees/heels, ribs down, breathe normally.'},
   deadbug:  {kind:'lift', name:'Dead Bug', equip:'Mat', sets:'2', reps:'8 / side', icon:G, load:'Bodyweight.', cue:'Lower back stays gently pressed to the floor as the opposite arm and leg lower. Slow and controlled.'},
   birddog:  {kind:'lift', name:'Bird Dog', equip:'Mat', sets:'2', reps:'8 / side', icon:G, load:'Bodyweight.', cue:'Reach long rather than high. Hips stay square — imagine a glass of water on your back.'},
-  bicycle:  {kind:'lift', name:'Slow Bicycle Crunch', equip:'Mat', sets:'2', reps:'12 / side', icon:'images/bicycle_crunch.png', load:'Bodyweight.', cue:'Slow rotation from the ribs, not the neck. Keep your lower back down.'},
+  pallof:   {kind:'lift', name:'Pallof Press', equip:'Cable or resistance band', sets:'2', reps:'10 / side', icon:G, load:'Light resistance. You should be resisting a twist, not fighting to hold on.', cue:'Stand side-on to the anchor, hands at chest, press straight out and hold 2 seconds, resisting the pull to rotate. Hips and shoulders stay square.'},
   sideplank:{kind:'lift', name:'Side Plank (knees)', equip:'Mat', sets:'2', reps:'20 s / side', icon:G, load:'Bodyweight.', cue:'Elbow under shoulder, lift the hips so you form a line from knees to head.'},
-  onelegstand:{kind:'stretch', name:'Single-Leg Stand', equip:'Near a wall or rail', dose:'30 s / leg', icon:G, cue:'Fingertips on support only if needed. Eyes on a fixed point. Balance training protects against falls.'}
+  onelegstand:{kind:'stretch', name:'Single-Leg Stand', equip:'Near a wall or rail', dose:'30 s / leg', icon:G, cue:'Fingertips on support only if needed. Eyes on a fixed point. Balance training protects against falls. Once 30 s feels easy: no hand support, then standing on a folded towel, then eyes closed next to a support.'}
 };
 
 /* ───────────────────────── Day templates ───────────────────────── */
 const WARM = ['catcow','openbook','armcircle','legswing'];
 const DAYS = {
-  A:{label:'Full Body A', tag:'Squat + Push', dur:'≈ 65 min', blocks:[
+  A:{label:'Full Body A', tag:'Squat + Push', dur:'≈ 70 min', blocks:[
     {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. This is the “good stretching” that gets your joints ready.', items:[...WARM,'sitstand']},
-    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['legpress','chestpress','cablerow','stepup','shoulderpress']},
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set when you could do about 2–3 more good reps (effort 7 out of 10). Short on time? Pair two exercises and alternate them with 60 seconds of rest.', items:['legpress','chestpress','cablerow','stepup','bridge','shoulderpress']},
     {t:'Core', time:'5 min', items:['plank','deadbug']},
-    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['quad','hipflex','fig4','calf','chest','neck']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce. Keep these gentle: the cardio warms you up again, so there is no need to repeat them.', items:['quad','hipflex','fig4','calf','chest','neck']},
     {cardio:true, t:'Cardio finish', time:'10 min', title:'Stationary bike', desc:'Easy start for 2 minutes, then a steady pace at 5–6 out of 10 effort: breathing faster, but you can still speak in sentences.'}
   ]},
   B:{label:'Full Body B', tag:'Hinge + Pull', dur:'≈ 65 min', blocks:[
     {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. Move into the stretch only as far as is comfortable.', items:[...WARM,'hinge']},
-    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['rdl','latpull','inclinepush','legcurl','revfly']},
-    {t:'Core', time:'5 min', items:['birddog','bicycle']},
-    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['ham','fig4','lat','twist','chest','child']},
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set when you could do about 2–3 more good reps (effort 7 out of 10). Short on time? Pair two exercises and alternate them with 60 seconds of rest.', items:['rdl','latpull','inclinepush','legcurl','revfly']},
+    {t:'Core', time:'5 min', items:['birddog','pallof']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce. Keep these gentle: the cardio warms you up again, so there is no need to repeat them.', items:['ham','fig4','lat','twist','chest','child']},
     {cardio:true, t:'Cardio finish', time:'10 min', title:'Cross-trainer (elliptical)', desc:'Easy start for 2 minutes, then steady at 5–6 out of 10 effort. Hold the handles lightly and stand tall.'}
   ]},
-  C:{label:'Full Body C', tag:'Legs + Balance', dur:'≈ 65 min', blocks:[
+  C:{label:'Full Body C', tag:'Legs + Balance', dur:'≈ 70–75 min', blocks:[
     {t:'Warm-up mobility', time:'8 min', note:'Gentle and flowing. Move into the stretch only as far as is comfortable.', items:[...WARM,'sitstand']},
-    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set with about 2 good reps left.', items:['goblet','onerow','dbpress','revlunge','carry','calfraise']},
-    {t:'Core', time:'5 min', items:['plank','sideplank']},
-    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce.', items:['quad','ham','hipflex','calf','crossarm','neck']},
-    {cardio:true, t:'Cardio finish', time:'10 min', title:'Treadmill incline walk', desc:'Walk at a brisk pace on a small incline (2–4%). Steady effort at 5–6 out of 10; no holding the rails if you can manage it.'}
+    {t:'Strength', time:'≈ 30 min', note:'Rest 60–90 seconds between sets. Stop each set when you could do about 2–3 more good reps (effort 7 out of 10). Short on time? Pair two exercises and alternate them with 60 seconds of rest.', items:['goblet','onerow','dbpress','revlunge','carry','calfraise']},
+    {t:'Core', time:'5 min', items:['plank','sideplank','onelegstand']},
+    {t:'Cool-down stretch', time:'8 min', note:'Hold each stretch, breathing slowly. Never bounce. Keep these gentle: the cardio warms you up again, so there is no need to repeat them.', items:['quad','ham','hipflex','calf','crossarm','neck']},
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Treadmill incline walk', desc:'Walk at a brisk pace on a small incline (2–4%). Steady effort at 5–6 out of 10; a light fingertip touch on the rail is fine, but never grip and lean back.'}
   ]},
   S:{label:'Stretch & Flow', tag:'Mobility · Balance · Cardio', dur:'≈ 45 min', blocks:[
     {t:'Warm-up mobility', time:'8 min', note:'A lighter day. The aim is to feel looser, not tired.', items:[...WARM,'hinge']},
     {t:'Long stretch session', time:'≈ 18 min', note:'Hold each stretch for the full time. A second round of your tightest areas is a good use of spare minutes.', items:['ham','quad','hipflex','fig4','calf','chest','lat','crossarm','child','twist','neck']},
     {t:'Balance & core', time:'5 min', items:['onelegstand','birddog','deadbug']},
-    {cardio:true, t:'Cardio finish', time:'10 min', title:'Your choice: bike, cross-trainer or brisk walk', desc:'Steady 5–6 out of 10 effort. From week 5 you can try 1 minute brisk, 2 minutes easy, repeated three times, plus a 1-minute easy finish.'}
+    {cardio:true, t:'Cardio finish', time:'10 min', title:'Your choice: bike, cross-trainer or brisk walk', desc:'Steady 5–6 out of 10 effort. From week 5 you can try 1 minute brisk, 2 minutes easy, repeated three times, plus a 1-minute easy finish. If you feel fresh, you can extend this to 15–20 minutes.'}
   ]}
 };
 // Monday → Sunday. R = rest.
@@ -275,10 +277,10 @@ function sessionsThisWeek(){
   return {done,total};
 }
 function phaseNote(w){
+  if(w>2 && w%6===0) return ['Easier week','Every sixth week, do one set fewer on each lift and keep the weights where they are. Recovery is when the strength is built.'];
   if(w<=2) return ['Weeks 1–2 · Learn the moves','Do just 2 sets of each lift and keep it light. Technique matters more than weight right now.'];
-  if(w<=12) return ['Weeks 3–12 · Build','Do all the listed sets. When every set hits the top of the rep range with 2 reps still in the tank, add the smallest weight step.'];
-  if(w%6===0) return ['Easier week','Every sixth week, do one set fewer on each lift. Recovery is when the strength is built.'];
-  return ['Week '+w+' · Keep building','Keep adding small amounts of weight when every set feels solid. Fat loss comes mostly from food; the lifting keeps your muscle and bones.'];
+  if(w<=12) return ['Weeks 3–12 · Build','Do all the listed sets. When every set hits the top of the rep range with 2–3 reps still in the tank, add the smallest weight step.'];
+  return ['Week '+w+' · Get stronger','For leg press, goblet squat, Romanian deadlift and rows, move to 3 sets of 6–8 reps with a heavier weight, still stopping with 2–3 good reps in the tank. Heavier loading is good for your bones. Keep the other lifts at 10–12.'];
 }
 
 /* ───────────────────────── Rendering ───────────────────────── */
@@ -330,7 +332,7 @@ function dayView(key, date){
   D.blocks.forEach(b=>{
     h += `<section class="block"><div class="block-title"><h3>${b.t}</h3><span>${b.time}</span></div>`;
     if(b.note) h += `<p class="block-note">${b.note}</p>`;
-    if(b.cardio) h += `<div class="cardio"><b>${b.title}</b><p>${b.desc}</p></div>`;
+    if(b.cardio) h += `<div class="cardio"><b>${b.title}</b><p>${b.desc} Finish with 1–2 minutes very easy before stepping off.</p></div>`;
     else b.items.forEach(id=> h += card(id));
     h += `</section>`;
   });
@@ -402,21 +404,22 @@ function planView(){
   <ul><li><b>Warm-up mobility</b> to loosen joints</li><li><b>Strength</b> (about 30 minutes) — whole body, 5–6 lifts</li><li><b>Core</b> for a strong middle</li><li><b>Cool-down stretching</b> of what you just trained</li><li><b>10 minutes of cardio</b> to finish</li></ul>
   <h3>Getting stronger safely</h3>
   <ul>
-    <li>Choose a weight you could lift about 3 more times than the reps listed. The last 2 reps of each set should feel hard but clean.</li>
+    <li>Stop each set when you could do about 2–3 more good reps (effort 7 out of 10). The last reps should feel hard but never ragged.</li>
     <li>Lower the weight slowly (about 2 counts). Breathe out as you push or pull — never hold your breath.</li>
     <li>When every set reaches the top of the range, add the smallest weight step next time. Write your weights in each exercise's box.</li>
     <li>If you're experienced, start heavier within the same rep ranges. These are written for someone new or returning to lifting.</li>
   </ul>
   <h3>Fat loss: what matters outside the gym</h3>
   <ul>
-    <li><b>Food does most of the work.</b> A modest daily deficit of roughly 400–500 kcal is steady without costing muscle.</li>
-    <li><b>Protein at every meal</b> — about 90–110 g a day in total (dal, eggs, paneer, curd, fish, chicken, tofu). Protein protects muscle while you lose fat.</li>
+    <li><b>Food does most of the work.</b> A modest daily deficit of roughly 400–500 kcal is steady without costing muscle. For most women of this size and age that lands around 1,350–1,450 kcal a day; don't go below about 1,300.</li>
+    <li><b>Protein at every meal</b> — about 25–35 g per meal, 90–110 g a day in total (eggs, paneer, curd, fish, chicken, tofu). Dal alone is low in protein, so pair it with curd, paneer or eggs. Protein protects muscle while you lose fat.</li>
+    <li><b>Calcium and vitamin D</b> — aim for about 1,200 mg of calcium a day (dairy, ragi, greens, fortified foods) and ask your doctor to check your vitamin D.</li>
     <li>Water through the day, and seven or more hours of sleep. Both make cravings easier.</li>
     <li>Strength training, stretching and short walks all add up. Do not try to “make up” a missed day by doing double.</li>
   </ul>
   <h3>Stretching rules</h3>
-  <ul><li>Stretch until you feel a mild pull, never pain.</li><li>Breathe slowly and don't bounce.</li><li>If you have been told you have low bone density, skip deep rounded-forward stretches and ask your doctor or a physio.</li></ul>
-  <p class="warn"><b>Stop and get checked</b> if you feel chest pain, dizziness, unusual breathlessness or sharp joint pain. Mild muscle soreness for a day or two is normal.</p>
+  <ul><li>Stretch until you feel a mild pull, never pain.</li><li>Breathe slowly and don't bounce.</li><li>If you have, or might have, low bone density, skip rounded-forward stretches, crunches and forced twists (child's pose, deep spinal twist). Ask your doctor about a bone-density (DEXA) scan.</li></ul>
+  <p class="warn"><b>Before you start:</b> if you have high blood pressure, heart problems or diabetes, or take blood-pressure medicine, get your doctor's OK first.<br><b>Stop and get checked</b> if you feel chest pain, dizziness, unusual breathlessness, sudden sharp back pain, pain or numbness down a leg, or joint swelling that lasts more than 2 days. Mild muscle soreness for a day or two is normal.</p>
   </div>`;
 }
 

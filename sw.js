@@ -1,4 +1,4 @@
-const CACHE_NAME = 'swati-gym-v1';
+const CACHE_NAME = 'swati-gym-v2';
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,6 +9,7 @@ const ASSETS = [
   "./images/bench_press.png",
   "./images/bicycle_crunch.png",
   "./images/calf_raise.png",
+  "./images/carry.svg",
   "./images/deadlift.png",
   "./images/generic.svg",
   "./images/lat_pulldown.png",
